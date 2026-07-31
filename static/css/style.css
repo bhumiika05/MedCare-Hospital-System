@@ -1,0 +1,1002 @@
+/* ==============================
+   GLOBAL STYLE
+============================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+body{
+
+    background:#f4f7fb;
+
+    font-family:'Segoe UI', Arial, sans-serif;
+
+    color:#1e293b;
+
+}
+
+
+
+/* ==============================
+   NAVBAR
+============================== */
+
+
+.navbar{
+
+    background:linear-gradient(
+        90deg,
+        #2563eb,
+        #06b6d4
+    ) !important;
+
+    padding:15px 0;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.15);
+
+}
+
+
+
+.navbar-brand{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+
+
+.nav-link{
+
+    color:white !important;
+
+    font-weight:500;
+
+    margin-left:15px;
+
+}
+
+
+
+.nav-link:hover{
+
+    opacity:.8;
+
+}
+
+
+
+/* ==============================
+   HERO SECTION
+============================== */
+
+
+.hero{
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #06b6d4
+    );
+
+    color:white;
+
+    padding:50px;
+
+    border-radius:25px;
+
+    box-shadow:
+    0 15px 40px rgba(37,99,235,.25);
+
+}
+
+
+
+.hero h1{
+
+    font-size:45px;
+
+    font-weight:700;
+
+}
+
+
+
+.hero p{
+
+    font-size:18px;
+
+    margin-top:15px;
+
+}
+
+
+
+.hero-icon{
+
+    font-size:150px;
+
+    opacity:.9;
+
+}
+
+
+
+/* ==============================
+   CARDS
+============================== */
+
+
+.card{
+
+    border:none;
+
+    border-radius:20px;
+
+    background:white;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+.dashboard-card{
+
+    padding:30px;
+
+    text-align:center;
+
+    transition:.3s;
+
+}
+
+
+
+.dashboard-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,0.15);
+
+}
+
+
+
+
+.icon{
+
+    font-size:45px;
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.dashboard-card h4{
+
+    font-weight:600;
+
+    margin-top:10px;
+
+}
+
+
+
+.dashboard-card h2{
+
+    font-size:40px;
+
+    color:#2563eb;
+
+    font-weight:700;
+
+}
+
+
+
+/* ==============================
+   FEATURE CARDS
+============================== */
+
+
+.feature-card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.08);
+
+}
+
+
+
+/* ==============================
+   TABLES
+============================== */
+
+
+.table{
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+}
+
+
+
+.table thead{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+.table td,
+.table th{
+
+    padding:15px;
+
+    vertical-align:middle;
+
+}
+
+
+
+/* ==============================
+   BUTTONS
+============================== */
+
+
+.btn{
+
+    border-radius:30px;
+
+    padding:10px 25px;
+
+    font-weight:600;
+
+}
+
+
+
+.btn-primary{
+
+    background:#2563eb;
+
+    border:none;
+
+}
+
+
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+/* ==============================
+   BADGES
+============================== */
+
+
+.badge{
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+}
+
+
+
+/* ==============================
+   INDEX PAGE STAT CARDS
+============================== */
+
+
+.stat-card{
+
+    background:white;
+
+    padding:30px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    box-shadow:
+
+    0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.stat-card i{
+
+    font-size:45px;
+
+    color:#2563eb;
+
+}
+
+
+
+.stat-card h2{
+
+    font-size:38px;
+
+    margin-top:15px;
+
+    font-weight:700;
+
+}
+
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+
+footer{
+
+    margin-top:60px;
+
+    background:#0f172a;
+
+    color:white;
+
+    padding:40px 0;
+
+}
+
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+
+@media(max-width:768px){
+
+
+.hero{
+
+    padding:30px;
+
+}
+
+
+.hero h1{
+
+    font-size:32px;
+
+}
+
+
+.hero-icon{
+
+    font-size:90px;
+
+}
+
+
+.dashboard-card h2{
+
+    font-size:32px;
+
+}
+
+
+}
+
+/* ==========================
+   HOSPITAL DASHBOARD
+========================== */
+
+
+canvas{
+
+    max-height:350px;
+
+}
+
+
+.card h3{
+
+    font-weight:700;
+
+    color:#0f172a;
+
+}
+
+
+.card h3 i{
+
+    color:#2563eb;
+
+    margin-right:10px;
+
+}
+
+/* CITY DASHBOARD */
+
+
+.dashboard-card h2{
+
+    color:#2563eb;
+
+    font-size:40px;
+
+}
+
+
+.card h3{
+
+    font-weight:700;
+
+}
+
+
+.card ul{
+
+    line-height:2;
+
+}
+/* OPD QUEUE */
+
+.form-control{
+
+    border-radius:15px;
+
+    padding:12px;
+
+}
+
+
+.alert{
+
+    border-radius:15px;
+
+}
+
+
+.hero-icon{
+
+    font-size:120px;
+
+}
+/* ==========================
+LIVE QUEUE DESIGN
+========================== */
+
+
+.queue-card{
+
+    background:white;
+    
+    border-radius:25px;
+    
+    padding:30px;
+    
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.1);
+    
+    }
+    
+    
+    
+    .queue-animation{
+    
+    
+    width:120px;
+    
+    height:120px;
+    
+    border-radius:50%;
+    
+    display:flex;
+    
+    align-items:center;
+    
+    justify-content:center;
+    
+    background:
+    linear-gradient(
+    135deg,
+    #2563eb,
+    #06b6d4
+    );
+    
+    color:white;
+    
+    font-size:45px;
+    
+    animation:pulse 2s infinite;
+    
+    }
+    
+    
+    
+    @keyframes pulse{
+    
+    
+    0%{
+    
+    transform:scale(1);
+    
+    }
+    
+    
+    50%{
+    
+    transform:scale(1.1);
+    
+    }
+    
+    
+    100%{
+    
+    transform:scale(1);
+    
+    }
+    
+    
+    }
+    /* ==========================
+   OPD QUEUE ANIMATION
+========================== */
+
+
+.queue-animation{
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #06b6d4
+    );
+
+    color:white;
+
+    font-size:45px;
+
+    animation:pulse 2s infinite;
+
+}
+
+
+
+@keyframes pulse{
+
+
+0%{
+
+transform:scale(1);
+
+}
+
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+
+100%{
+
+transform:scale(1);
+
+}
+
+
+}
+
+
+
+
+.queue-step{
+
+    padding:20px;
+
+    transition:.3s;
+
+}
+
+
+
+.queue-step:hover{
+
+    transform:translateY(-8px);
+
+}
+.queue-animation{
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #06b6d4
+    );
+
+    color:white;
+
+    font-size:45px;
+
+    animation:pulse 2s infinite;
+
+}
+
+
+
+@keyframes pulse{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.08);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+/* ANALYTICS */
+
+
+canvas{
+
+    max-height:400px;
+    
+    }
+    
+    
+    
+    .dashboard-card h2{
+    
+    font-weight:700;
+    
+    }
+    
+    
+    
+    .hero h1{
+    
+    font-weight:700;
+    
+    }
+    
+    
+    
+    .card{
+    
+    transition:.3s;
+    
+    }
+    
+    
+    
+    .card:hover{
+    
+    transform:translateY(-5px);
+    
+    }
+
+    /* ==========================
+   ANALYTICS PAGE
+========================== */
+
+
+.analytics-box{
+
+    padding:30px;
+    
+    border-radius:20px;
+    
+    background:#f8fafc;
+    
+    }
+    
+    
+    
+    .analytics-box h1{
+    
+    font-size:45px;
+    
+    }
+    
+    
+    
+    .danger{
+    
+    border-left:6px solid #dc3545;
+    
+    }
+    
+    
+    
+    .warning{
+    
+    border-left:6px solid #ffc107;
+    
+    }
+    
+    
+    
+    .success{
+    
+    border-left:6px solid #198754;
+    
+    }
+    
+    
+    
+    .department-card{
+    
+    background:white;
+    
+    padding:25px;
+    
+    border-radius:20px;
+    
+    text-align:center;
+    
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    
+    transition:.3s;
+    
+    }
+    
+    
+    
+    .department-card:hover{
+    
+    transform:translateY(-8px);
+    
+    }
+    .ai-card{
+
+        border-radius:20px;
+        
+        padding:25px;
+        
+        background:white;
+        
+        box-shadow:0 10px 25px rgba(0,0,0,0.1);
+        
+        }
+        
+        
+        .ai-card:hover{
+        
+        transform:translateY(-5px);
+        
+        transition:.3s;
+        
+        }
+        .hero-badge{
+
+            display:inline-block;
+            
+            background:rgba(255,255,255,.2);
+            
+            padding:8px 18px;
+            
+            border-radius:30px;
+            
+            font-weight:600;
+            
+            }
+            
+            .hero-text{
+            
+            font-size:18px;
+            
+            line-height:1.8;
+            
+            opacity:.95;
+            
+            }
+            
+            .hero-image{
+            
+            max-height:420px;
+            
+            animation:floatImage 4s ease-in-out infinite;
+            
+            }
+            
+            @keyframes floatImage{
+            
+            0%{transform:translateY(0px);}
+            
+            50%{transform:translateY(-12px);}
+            
+            100%{transform:translateY(0px);}
+            
+            }
+            
+            .stats-card{
+            
+            background:white;
+            
+            transition:.35s;
+            
+            }
+            
+            .stats-card:hover{
+            
+            transform:translateY(-10px);
+            
+            }
+            
+            .feature-card{
+            
+            border-radius:20px;
+            
+            transition:.35s;
+            
+            }
+            
+            .feature-card:hover{
+            
+            transform:translateY(-8px);
+            
+            box-shadow:0 18px 35px rgba(37,99,235,.18);
+            
+            }
+            
+            .feature-icon{
+            
+            font-size:48px;
+            
+            margin-bottom:20px;
+            
+            color:#2563eb;
+            
+            }
+            
+            .step-circle{
+            
+            width:70px;
+            
+            height:70px;
+            
+            margin:auto;
+            
+            border-radius:50%;
+            
+            background:linear-gradient(135deg,#2563eb,#06b6d4);
+            
+            color:white;
+            
+            display:flex;
+            
+            align-items:center;
+            
+            justify-content:center;
+            
+            font-size:28px;
+            
+            font-weight:bold;
+            
+            box-shadow:0 10px 20px rgba(0,0,0,.15);
+            
+            }
+            
+            .hero{
+            
+            overflow:hidden;
+            
+            position:relative;
+            
+            }
+            .quick-card{
+
+                padding:30px;
+                
+                text-align:center;
+                
+                transition:.35s;
+                
+                border-radius:20px;
+                
+                }
+                
+                .quick-card:hover{
+                
+                transform:translateY(-10px);
+                
+                box-shadow:0 15px 30px rgba(37,99,235,.2);
+                
+                }
+                
+                .quick-card i{
+                
+                font-size:50px;
+                
+                margin-bottom:15px;
+                
+                color:#2563eb;
+                
+                }
+                
+                .progress{
+                
+                height:25px;
+                
+                border-radius:20px;
+                
+                }
+                
+                .progress-bar{
+                
+                font-weight:600;
+                
+                }

@@ -1,0 +1,269 @@
+/* =========================
+   MEDCARE DASHBOARD STYLE
+========================= */
+
+
+body{
+
+    background:#f5f8fc;
+    font-family:'Segoe UI', sans-serif;
+
+}
+
+
+/* SIDEBAR */
+
+.sidebar{
+
+    position:fixed;
+
+    width:260px;
+
+    height:100vh;
+
+    background:
+    linear-gradient(
+        180deg,
+        #0d6efd,
+        #023e8a
+    );
+
+    color:white;
+
+    padding:25px;
+
+}
+
+
+
+.logo{
+
+    font-size:28px;
+
+    font-weight:700;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.sidebar a{
+
+    display:block;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:14px 15px;
+
+    margin:12px 0;
+
+    border-radius:12px;
+
+    transition:0.3s;
+
+}
+
+
+
+.sidebar a:hover{
+
+    background:
+    rgba(255,255,255,0.2);
+
+    transform:translateX(5px);
+
+}
+
+
+
+
+/* MAIN CONTENT */
+
+
+.main{
+
+    margin-left:280px;
+
+    padding:30px;
+
+}
+
+
+
+
+/* TOP BAR */
+
+
+.topbar{
+
+    background:white;
+
+    padding:18px 25px;
+
+    border-radius:20px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,0.08);
+
+}
+
+
+
+
+.profile{
+
+    font-weight:600;
+
+}
+
+
+
+/* STAT CARDS */
+
+
+.stat-card{
+
+    padding:25px;
+
+    border-radius:22px;
+
+    color:white;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,0.12);
+
+    transition:0.3s;
+
+}
+
+
+
+.stat-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.blue{
+
+background:
+linear-gradient(
+135deg,
+#007bff,
+#00c6ff
+);
+
+}
+
+
+
+.green{
+
+background:
+linear-gradient(
+135deg,
+#00b09b,
+#96c93d
+);
+
+}
+
+
+
+.orange{
+
+background:
+linear-gradient(
+135deg,
+#ff9966,
+#ff5e62
+);
+
+}
+
+
+
+.red{
+
+background:
+linear-gradient(
+135deg,
+#ff416c,
+#ff4b2b
+);
+
+}
+
+
+
+/* CONTENT CARDS */
+
+
+.dashboard-card{
+
+background:white;
+
+padding:25px;
+
+border-radius:22px;
+
+box-shadow:
+0 8px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+
+/* TABLE */
+
+
+.table{
+
+background:white;
+
+border-radius:15px;
+
+overflow:hidden;
+
+}
+
+
+
+
+/* MOBILE */
+
+
+@media(max-width:768px){
+
+
+.sidebar{
+
+position:relative;
+
+width:100%;
+
+height:auto;
+
+}
+
+
+.main{
+
+margin-left:0;
+
+}
+
+
+}

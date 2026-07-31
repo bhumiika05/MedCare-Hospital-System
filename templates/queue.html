@@ -1,0 +1,701 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+OPD Queue
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+<section class="hero">
+
+
+<div class="row align-items-center">
+
+
+<div class="col-md-8">
+
+
+<h1>
+
+<i class="fa-solid fa-ticket"></i>
+
+Smart OPD Queue System
+
+</h1>
+
+
+
+<p>
+
+Digital token generation, QR verification and live patient flow management.
+
+</p>
+
+
+
+<a href="/appointment" class="btn btn-light mt-3">
+
+<i class="fa-solid fa-calendar-check"></i>
+
+Book Appointment
+
+</a>
+
+
+
+</div>
+
+
+
+
+<div class="col-md-4 text-center">
+
+
+<div class="queue-animation mx-auto">
+
+
+<i class="fa-solid fa-qrcode"></i>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+<br><br>
+
+
+
+
+
+
+<div class="row g-4">
+
+
+
+
+
+<!-- TOKEN GENERATION -->
+
+
+<div class="col-md-6">
+
+
+<div class="card p-4 h-100">
+
+
+
+<h3>
+
+<i class="fa-solid fa-ticket"></i>
+
+Generate OPD Token
+
+</h3>
+
+
+
+<hr>
+
+
+
+
+<form method="POST">
+
+
+
+
+
+<div class="mb-3">
+
+
+<label class="form-label">
+
+Patient Name
+
+</label>
+
+
+
+<input
+
+type="text"
+
+class="form-control"
+
+name="name"
+
+placeholder="Enter patient name"
+
+required>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="mb-3">
+
+
+<label class="form-label">
+
+Phone Number
+
+</label>
+
+
+
+<input
+
+type="text"
+
+class="form-control"
+
+name="phone"
+
+placeholder="Enter mobile number"
+
+required>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="mb-3">
+
+
+<label class="form-label">
+
+Department
+
+</label>
+
+
+
+
+<select
+
+class="form-control"
+
+name="department"
+
+required>
+
+
+
+
+<option>
+
+General Medicine
+
+</option>
+
+
+
+
+<option>
+
+Cardiology
+
+</option>
+
+
+
+
+<option>
+
+Neurology
+
+</option>
+
+
+
+
+<option>
+
+Orthopedics
+
+</option>
+
+
+
+
+</select>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<button
+
+class="btn btn-primary w-100">
+
+
+<i class="fa-solid fa-qrcode"></i>
+
+
+Generate Digital Token
+
+
+</button>
+
+
+
+
+
+
+</form>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- LIVE STATUS -->
+
+
+<div class="col-md-6">
+
+
+<div class="card p-4 h-100">
+
+
+
+<h3>
+
+
+<i class="fa-solid fa-wave-square"></i>
+
+
+Live Queue Status
+
+
+</h3>
+
+
+
+<hr>
+
+
+
+
+
+
+
+<div class="queue-animation mx-auto mb-4">
+
+
+<i class="fa-solid fa-users"></i>
+
+
+</div>
+
+
+
+
+
+
+
+{% if current_token %}
+
+
+
+
+<div class="alert alert-success text-center">
+
+
+
+<h5>
+
+Currently Serving Token
+
+</h5>
+
+
+
+<h1>
+
+#{{current_token.token_number}}
+
+</h1>
+
+
+
+
+<p>
+
+{{current_token.patient_name}}
+
+</p>
+
+
+
+<span class="badge bg-success">
+
+Serving
+
+</span>
+
+
+
+</div>
+
+
+
+
+
+
+{% else %}
+
+
+
+
+<div class="alert alert-info text-center">
+
+
+<h5>
+
+No Active Consultation
+
+</h5>
+
+
+
+<p>
+
+Doctor has not started serving any patient.
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+<div class="text-center mt-4">
+
+
+<h4>
+
+Patients Waiting
+
+</h4>
+
+
+
+<h1 class="text-primary">
+
+{{waiting_count}}
+
+</h1>
+
+
+
+<p>
+
+Estimated waiting time
+
+</p>
+
+
+
+<h4>
+
+
+<i class="fa-solid fa-clock"></i>
+
+
+{{waiting_count * 10}}
+
+Minutes
+
+
+</h4>
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+
+<!-- QUEUE FLOW -->
+
+
+<div class="card p-4">
+
+
+
+<h3>
+
+
+<i class="fa-solid fa-route"></i>
+
+
+Smart OPD Workflow
+
+
+</h3>
+
+
+
+<hr>
+
+
+
+
+
+
+<div class="row text-center">
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="queue-step">
+
+
+<i class="fa-solid fa-user-plus icon"></i>
+
+
+<h5>
+
+Register
+
+</h5>
+
+
+<p>
+
+Enter patient details
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="queue-step">
+
+
+<i class="fa-solid fa-ticket icon"></i>
+
+
+<h5>
+
+Token
+
+</h5>
+
+
+<p>
+
+Receive digital token
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="queue-step">
+
+
+<i class="fa-solid fa-qrcode icon"></i>
+
+
+<h5>
+
+QR Check-in
+
+</h5>
+
+
+<p>
+
+Verify at hospital
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="queue-step">
+
+
+<i class="fa-solid fa-user-doctor icon"></i>
+
+
+<h5>
+
+Doctor Visit
+
+</h5>
+
+
+<p>
+
+Consult doctor
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

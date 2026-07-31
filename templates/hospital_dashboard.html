@@ -1,0 +1,437 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Hospital Dashboard
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="hero">
+
+<h1>
+
+<i class="fa-solid fa-hospital"></i>
+
+Hospital Dashboard
+
+</h1>
+
+
+<p>
+
+Manage beds, patients and OPD queue.
+
+</p>
+
+
+</div>
+
+
+
+<br>
+
+
+
+<div class="row g-4">
+
+
+<div class="col-md-3">
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-bed icon"></i>
+
+
+<h4>
+Total Beds
+</h4>
+
+
+<h2>
+{{ total_beds }}
+</h2>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-bed-pulse icon"></i>
+
+
+<h4>
+Occupied Beds
+</h4>
+
+
+<h2>
+{{ occupied }}
+</h2>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-bed icon"></i>
+
+
+<h4>
+Available Beds
+</h4>
+
+
+<h2>
+{{ available }}
+</h2>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-users icon"></i>
+
+
+<h4>
+Waiting Patients
+</h4>
+
+
+<h2>
+{{ waiting_patients }}
+</h2>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+<br><br>
+
+
+
+
+<div class="card p-4">
+
+
+<h3>
+
+<i class="fa-solid fa-bed"></i>
+
+Bed Details
+
+</h3>
+
+
+<hr>
+
+
+<div class="table-responsive">
+
+
+<table class="table">
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+Hospital
+</th>
+
+
+<th>
+Ward
+</th>
+
+
+<th>
+Total Beds
+</th>
+
+
+<th>
+Occupied
+</th>
+
+
+<th>
+Available
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+<tbody>
+
+
+{% for bed in beds %}
+
+
+<tr>
+
+
+<td>
+{{ bed.hospital }}
+</td>
+
+
+<td>
+{{ bed.ward }}
+</td>
+
+
+<td>
+{{ bed.total_beds }}
+</td>
+
+
+<td>
+{{ bed.occupied_beds }}
+</td>
+
+
+<td>
+{{ bed.available_beds }}
+</td>
+
+
+</tr>
+
+
+
+{% else %}
+
+
+<tr>
+
+<td colspan="5" class="text-center">
+
+No bed data available
+
+</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+</tbody>
+
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<br><br>
+
+
+
+
+<div class="card p-4">
+
+
+<h3>
+
+<i class="fa-solid fa-users"></i>
+
+OPD Queue
+
+</h3>
+
+
+<hr>
+
+
+
+<div class="table-responsive">
+
+
+<table class="table">
+
+
+<thead>
+
+
+<tr>
+
+
+<th>
+Token
+</th>
+
+
+<th>
+Patient Name
+</th>
+
+
+<th>
+Phone
+</th>
+
+
+<th>
+Department
+</th>
+
+
+<th>
+Status
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+<tbody>
+
+
+
+{% for patient in queue %}
+
+
+<tr>
+
+
+<td>
+
+{{ patient.token_number }}
+
+</td>
+
+
+
+<td>
+
+{{ patient.patient_name }}
+
+</td>
+
+
+
+<td>
+
+{{ patient.phone }}
+
+</td>
+
+
+
+<td>
+
+{{ patient.department }}
+
+</td>
+
+
+
+<td>
+
+{{ patient.status }}
+
+</td>
+
+
+
+</tr>
+
+
+
+{% else %}
+
+
+<tr>
+
+
+<td colspan="5" class="text-center">
+
+No queue patients
+
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</tbody>
+
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Doctors
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+<section class="hero">
+
+
+<h1>
+
+<i class="fa-solid fa-user-doctor"></i>
+
+Our Doctors
+
+</h1>
+
+
+<p>
+
+Find available doctors and their specializations.
+
+</p>
+
+
+</section>
+
+
+
+<br>
+
+
+
+
+<div class="row g-4">
+
+
+
+{% for doctor in doctors %}
+
+
+
+<div class="col-md-4">
+
+
+<div class="card p-4 text-center">
+
+
+
+{% if doctor.image %}
+
+
+<img
+
+src="{{url_for('static',
+filename='images/'+doctor.image)}}"
+
+class="rounded-circle mx-auto mb-3"
+
+width="120"
+
+height="120">
+
+
+{% else %}
+
+
+<i class="fa-solid fa-user-doctor icon"></i>
+
+
+{% endif %}
+
+
+
+
+
+<h3>
+
+{{doctor.name}}
+
+</h3>
+
+
+
+
+<p>
+
+<i class="fa-solid fa-stethoscope"></i>
+
+{{doctor.specialization}}
+
+</p>
+
+
+
+
+<p>
+
+<i class="fa-solid fa-building"></i>
+
+{{doctor.hospital}}
+
+</p>
+
+
+
+
+<p>
+
+Experience:
+
+<strong>
+
+{{doctor.experience}}
+
+years
+
+</strong>
+
+</p>
+
+
+
+
+
+<p>
+
+Qualification:
+
+{{doctor.qualification}}
+
+</p>
+
+
+
+
+
+
+{% if doctor.available %}
+
+
+
+<span class="badge bg-success">
+
+Available
+
+</span>
+
+
+
+{% else %}
+
+
+
+<span class="badge bg-danger">
+
+Not Available
+
+</span>
+
+
+
+{% endif %}
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+{% else %}
+
+
+
+
+<div class="card p-4 text-center">
+
+
+<h3>
+
+No doctors available
+
+</h3>
+
+
+<p>
+
+Doctor information will appear here.
+
+</p>
+
+
+</div>
+
+
+
+
+{% endfor %}
+
+
+
+
+</div>
+
+
+
+
+{% endblock %}

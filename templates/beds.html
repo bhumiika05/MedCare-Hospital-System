@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <h1 class="page-title">
+        Hospital Bed Availability
+    </h1>
+
+    <p class="subtitle">
+        Check real-time hospital bed availability
+    </p>
+
+
+    {% if beds %}
+
+    <div class="dashboard-grid">
+
+
+        {% for bed in beds %}
+
+        <div class="dashboard-card">
+
+
+            <h2>
+                {{ bed.hospital }}
+            </h2>
+
+
+            <p>
+                <strong>Ward:</strong>
+                {{ bed.ward }}
+            </p>
+
+
+            <p>
+                <strong>Total Beds:</strong>
+                {{ bed.total_beds }}
+            </p>
+
+
+            <p>
+                <strong>Occupied Beds:</strong>
+                {{ bed.occupied_beds }}
+            </p>
+
+
+            <p>
+                <strong>Available Beds:</strong>
+                {{ bed.available_beds }}
+            </p>
+
+
+            <p>
+                <strong>Last Updated:</strong>
+                {{ bed.updated_at.strftime('%d-%m-%Y %H:%M') }}
+            </p>
+
+
+            {% if bed.available_beds > 0 %}
+
+            <div class="status available">
+                Available
+            </div>
+
+            {% else %}
+
+            <div class="status occupied">
+                Full
+            </div>
+
+            {% endif %}
+
+
+        </div>
+
+
+        {% endfor %}
+
+
+    </div>
+
+
+    {% else %}
+
+
+    <div class="dashboard-card empty-state">
+
+        <h2>
+            No Bed Data Available
+        </h2>
+
+        <p>
+            Hospital bed information has not been added yet.
+        </p>
+
+    </div>
+
+
+    {% endif %}
+
+
+</div>
+
+
+{% endblock %}

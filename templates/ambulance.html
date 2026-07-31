@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ambulance Services
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+<div class="row align-items-center">
+
+<div class="col-lg-8">
+
+<h1>
+
+<i class="fa-solid fa-truck-medical"></i>
+
+Smart Ambulance Response System
+
+</h1>
+
+<p>
+
+Real-time ambulance tracking and emergency response management.
+
+</p>
+
+</div>
+
+<div class="col-lg-4 text-center">
+
+<i class="fa-solid fa-truck-medical hero-big-icon"></i>
+
+</div>
+
+</div>
+
+</section>
+
+<br>
+
+<div class="row g-4">
+
+<div class="col-md-4">
+
+<div class="card dashboard-card">
+
+<i class="fa-solid fa-ambulance icon"></i>
+
+<h5>Total Ambulances</h5>
+
+<h2>{{ ambulances|length }}</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card dashboard-card">
+
+<i class="fa-solid fa-location-dot icon"></i>
+
+<h5>Coverage</h5>
+
+<h2>City Wide</h2>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card dashboard-card">
+
+<i class="fa-solid fa-clock icon"></i>
+
+<h5>Average Response</h5>
+
+<h2>8 Min</h2>
+
+</div>
+
+</div>
+
+</div>
+
+<br><br>
+
+<div class="row g-4">
+
+{% for ambulance in ambulances %}
+
+<div class="col-lg-4">
+
+<div class="card p-4 h-100">
+
+<div class="text-center mb-3">
+
+<i class="fa-solid fa-truck-medical fa-4x text-danger"></i>
+
+</div>
+
+<h4 class="text-center">
+
+{{ ambulance.vehicle_number }}
+
+</h4>
+
+<hr>
+
+<p>
+
+<strong>Driver:</strong>
+
+{{ ambulance.driver_name }}
+
+</p>
+
+<p>
+
+<strong>Phone:</strong>
+
+{{ ambulance.phone }}
+
+</p>
+
+<p>
+
+<strong>Location:</strong>
+
+{{ ambulance.location }}
+
+</p>
+
+<p>
+
+<strong>Status:</strong>
+
+{% if ambulance.status == "Available" %}
+
+<span class="badge bg-success">
+
+Available
+
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+
+{{ ambulance.status }}
+
+</span>
+
+{% endif %}
+
+</p>
+
+<button class="btn btn-danger w-100">
+
+<i class="fa-solid fa-phone"></i>
+
+Dispatch Ambulance
+
+</button>
+
+</div>
+
+</div>
+
+{% else %}
+
+<div class="col-12">
+
+<div class="alert alert-warning text-center">
+
+<h4>
+
+No Ambulances Available
+
+</h4>
+
+<p>
+
+Please add ambulance data to the database.
+
+</p>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+{% endblock %}

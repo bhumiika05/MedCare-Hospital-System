@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<section class="page" aria-labelledby="about-heading">
+    <header class="page-header">
+        <h1 id="about-heading">About MedCare</h1>
+        <p>One connected platform for modern healthcare delivery.</p>
+    </header>
+
+    <div class="page-body">
+        <p>
+            MedCare connects patients, doctors, hospitals, ambulance responders,
+            and city health authorities through a single, easy-to-use system.
+        </p>
+        <ul class="feature-list">
+            <li>Real-time bed and queue visibility across facilities</li>
+            <li>Streamlined appointment booking for patients and staff</li>
+            <li>Coordination tools for emergency and city-wide health response</li>
+        </ul>
+    </div>
+
+    <div class="card-grid section-spaced">
+        <article class="card">
+            <div class="card-icon" aria-hidden="true">♥</div>
+            <h2>Patient-first</h2>
+            <p>Clear access to care, wait times, and availability when it matters most.</p>
+        </article>
+        <article class="card">
+            <div class="card-icon" aria-hidden="true">⚕</div>
+            <h2>Provider-ready</h2>
+            <p>Tools that reduce administrative load so clinicians can focus on care.</p>
+        </article>
+        <article class="card">
+            <div class="card-icon" aria-hidden="true">◉</div>
+            <h2>City-scale</h2>
+            <p>Insights for health authorities to allocate resources effectively.</p>
+        </article>
+    </div>
+</section>
+{% endblock %}

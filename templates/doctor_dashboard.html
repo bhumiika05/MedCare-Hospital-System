@@ -1,0 +1,860 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Doctor Dashboard
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+<section class="hero">
+
+
+<div class="row align-items-center">
+
+
+<div class="col-md-8">
+
+
+<h1>
+
+<i class="fa-solid fa-user-doctor"></i>
+
+Doctor Command Center
+
+</h1>
+
+
+<p>
+
+Manage OPD queue, appointments and patient consultations.
+
+</p>
+
+
+</div>
+
+
+
+<div class="col-md-4 text-center">
+
+
+<div class="queue-animation mx-auto">
+
+
+<i class="fa-solid fa-stethoscope"></i>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+<!-- STATISTICS -->
+
+
+
+<div class="row g-4">
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-users icon"></i>
+
+
+<h4>
+
+Total Patients
+
+</h4>
+
+
+<h2>
+
+{{ total_patients }}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-calendar-check icon"></i>
+
+
+<h4>
+
+Appointments
+
+</h4>
+
+
+<h2>
+
+{{ appointments|length }}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-clock icon"></i>
+
+
+<h4>
+
+Waiting
+
+</h4>
+
+
+<h2>
+
+{{ waiting_patients }}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-list-check icon"></i>
+
+
+<h4>
+
+Queue
+
+</h4>
+
+
+<h2>
+
+{{ queue|length }}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+
+<!-- CURRENT PATIENT -->
+
+
+
+<div class="card p-4">
+
+
+
+<h3>
+
+<i class="fa-solid fa-user-clock"></i>
+
+Current Consultation
+
+</h3>
+
+
+
+<hr>
+
+
+
+
+
+{% if serving_patient %}
+
+
+
+<div class="alert alert-success text-center">
+
+
+<h5>
+
+Now Serving
+
+</h5>
+
+
+<h1>
+
+Token #{{ serving_patient.token_number }}
+
+</h1>
+
+
+
+<h4>
+
+{{ serving_patient.patient_name }}
+
+</h4>
+
+
+
+<p>
+
+Phone:
+
+{{ serving_patient.phone }}
+
+</p>
+
+
+
+<p>
+
+Department:
+
+{{ serving_patient.department }}
+
+</p>
+
+
+
+
+<span class="badge bg-success">
+
+{{ serving_patient.status }}
+
+</span>
+
+
+
+</div>
+
+
+
+
+
+{% else %}
+
+
+
+<div class="alert alert-info">
+
+
+No patient is currently being served.
+
+</div>
+
+
+
+
+{% endif %}
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+
+<!-- LIVE QUEUE CONTROL -->
+
+
+
+<div class="card p-4">
+
+
+
+<h3>
+
+<i class="fa-solid fa-users-line"></i>
+
+Live OPD Queue Management
+
+</h3>
+
+
+
+<hr>
+
+
+
+
+<a href="/call-next"
+
+class="btn btn-success mb-4">
+
+
+<i class="fa-solid fa-forward"></i>
+
+Call Next Patient
+
+
+</a>
+
+
+
+
+
+
+
+<div class="table-responsive">
+
+
+
+<table class="table">
+
+
+
+<thead class="table-primary">
+
+
+<tr>
+
+
+<th>
+
+Token
+
+</th>
+
+
+<th>
+
+Patient
+
+</th>
+
+
+<th>
+
+Phone
+
+</th>
+
+
+<th>
+
+Department
+
+</th>
+
+
+<th>
+
+Status
+
+</th>
+
+
+<th>
+
+Action
+
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+
+
+<tbody>
+
+
+
+{% for patient in queue %}
+
+
+
+
+<tr>
+
+
+<td>
+
+{{patient.token_number}}
+
+</td>
+
+
+
+<td>
+
+{{patient.patient_name}}
+
+</td>
+
+
+
+<td>
+
+{{patient.phone}}
+
+</td>
+
+
+
+<td>
+
+{{patient.department}}
+
+</td>
+
+
+
+
+<td>
+
+
+{% if patient.status == "Serving" %}
+
+
+
+<span class="badge bg-success">
+
+Serving
+
+</span>
+
+
+
+{% elif patient.status == "Completed" %}
+
+
+
+<span class="badge bg-secondary">
+
+Completed
+
+</span>
+
+
+
+{% else %}
+
+
+
+<span class="badge bg-warning">
+
+Waiting
+
+</span>
+
+
+
+{% endif %}
+
+
+
+</td>
+
+
+
+
+
+<td>
+
+
+
+{% if patient.status == "Serving" %}
+
+
+
+<a href="/complete-patient/{{patient.id}}"
+
+class="btn btn-danger btn-sm">
+
+
+Complete
+
+
+</a>
+
+
+
+{% endif %}
+
+
+
+</td>
+
+
+
+</tr>
+
+
+
+
+{% else %}
+
+
+
+<tr>
+
+
+<td colspan="6"
+
+class="text-center">
+
+
+No patients in queue
+
+
+</td>
+
+
+</tr>
+
+
+
+
+{% endfor %}
+
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+
+<!-- APPOINTMENTS -->
+
+
+
+<div class="card p-4">
+
+
+
+<h3>
+
+<i class="fa-solid fa-calendar-days"></i>
+
+Appointments
+
+</h3>
+
+
+
+<hr>
+
+
+
+
+
+<div class="table-responsive">
+
+
+<table class="table">
+
+
+
+<thead class="table-primary">
+
+
+<tr>
+
+
+<th>
+
+Patient
+
+</th>
+
+
+<th>
+
+Phone
+
+</th>
+
+
+<th>
+
+Doctor
+
+</th>
+
+
+<th>
+
+Hospital
+
+</th>
+
+
+<th>
+
+Date
+
+</th>
+
+
+<th>
+
+Status
+
+</th>
+
+
+</tr>
+
+
+
+</thead>
+
+
+
+
+
+
+<tbody>
+
+
+
+{% for appointment in appointments %}
+
+
+
+<tr>
+
+
+
+<td>
+
+{{appointment.patient_name}}
+
+</td>
+
+
+
+
+<td>
+
+{{appointment.phone}}
+
+</td>
+
+
+
+
+<td>
+
+{{appointment.doctor}}
+
+</td>
+
+
+
+
+<td>
+
+{{appointment.hospital}}
+
+</td>
+
+
+
+
+<td>
+
+{{appointment.appointment_date}}
+
+</td>
+
+
+
+
+<td>
+
+
+<span class="badge bg-info">
+
+{{appointment.status}}
+
+</span>
+
+
+</td>
+
+
+
+
+</tr>
+
+
+
+
+{% else %}
+
+
+
+<tr>
+
+
+<td colspan="6"
+
+class="text-center">
+
+
+No appointments available
+
+
+</td>
+
+
+</tr>
+
+
+
+{% endfor %}
+
+
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+{% endblock %}

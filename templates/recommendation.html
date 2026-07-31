@@ -1,0 +1,318 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+
+AI Hospital Recommendation
+
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+
+<section class="hero">
+
+
+<h1>
+
+<i class="fa-solid fa-robot"></i>
+
+AI Healthcare Recommendation
+
+</h1>
+
+
+<p>
+
+Find the right department and hospital using intelligent analysis.
+
+</p>
+
+
+</section>
+
+
+
+
+<br><br>
+
+
+
+
+
+<div class="card p-4">
+
+
+<h3>
+
+<i class="fa-solid fa-stethoscope"></i>
+
+Enter Symptoms
+
+</h3>
+
+
+<hr>
+
+
+
+
+<form method="POST">
+
+
+
+<div class="mb-3">
+
+<label>
+
+Patient Name
+
+</label>
+
+
+<input
+
+class="form-control"
+
+name="name"
+
+required>
+
+
+</div>
+
+
+
+
+
+
+<div class="mb-3">
+
+
+<label>
+
+Describe Symptoms
+
+</label>
+
+
+<textarea
+
+class="form-control"
+
+name="symptoms"
+
+rows="4"
+
+placeholder="Example: chest pain, fever, cough"
+
+required>
+
+</textarea>
+
+
+</div>
+
+
+
+
+
+<button class="btn btn-primary w-100">
+
+
+<i class="fa-solid fa-brain"></i>
+
+Generate AI Recommendation
+
+
+</button>
+
+
+
+</form>
+
+
+
+</div>
+
+
+
+
+
+
+
+{% if result %}
+
+
+<br><br>
+
+
+
+
+<div class="card p-4">
+
+
+
+<h3>
+
+AI Analysis Result
+
+</h3>
+
+
+
+<hr>
+
+
+
+
+<div class="row text-center">
+
+
+
+
+
+<div class="col-md-4">
+
+
+<h2>
+
+{{result.risk}}
+
+</h2>
+
+
+<p>
+
+Risk Level
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<h2>
+
+{{result.department}}
+
+</h2>
+
+
+<p>
+
+Recommended Department
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<h2>
+
+{{result.priority}}
+
+</h2>
+
+
+<p>
+
+Priority
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<hr>
+
+
+
+<h4>
+
+Recommended Hospital
+
+</h4>
+
+
+<h2 class="text-primary">
+
+{{result.hospital}}
+
+</h2>
+
+
+
+<p>
+
+Available Beds:
+
+{{result.beds}}
+
+</p>
+
+
+
+<p>
+
+Estimated Waiting Time:
+
+{{result.waiting}} minutes
+
+</p>
+
+
+
+
+<div class="alert alert-info">
+
+
+{{result.advice}}
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+{% endif %}
+
+
+
+
+
+
+{% endblock %}

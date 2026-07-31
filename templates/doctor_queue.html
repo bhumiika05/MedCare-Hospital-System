@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<section class="page">
+
+
+<div class="page-header">
+
+<h1>
+Doctor OPD Queue
+</h1>
+
+</div>
+
+
+
+<div class="card-grid">
+
+
+{% for token in tokens %}
+
+
+<div class="card">
+
+
+<h2>
+
+Token:
+{{token.token_number}}
+
+</h2>
+
+
+<p>
+
+Patient:
+{{token.patient_name}}
+
+</p>
+
+
+<p>
+
+Doctor:
+{{token.doctor}}
+
+</p>
+
+
+<p>
+
+Status:
+
+{{token.status}}
+
+</p>
+
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
+
+
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<section class="page">
+
+
+<h1>
+Book Appointment
+</h1>
+
+
+<form method="POST">
+
+
+<label>
+Patient Name
+</label>
+
+<input 
+type="text"
+name="name"
+required>
+
+
+
+<label>
+Phone Number
+</label>
+
+<input
+type="text"
+name="phone"
+required>
+
+
+
+<label>
+Select Doctor
+</label>
+
+<select name="doctor">
+
+
+<option>
+Dr. Sharma - Cardiologist
+</option>
+
+
+<option>
+Dr. Mehta - Neurologist
+</option>
+
+
+<option>
+Dr. Gupta - Orthopedic
+</option>
+
+
+</select>
+
+
+
+
+<label>
+Select Hospital
+</label>
+
+
+<select name="hospital">
+
+
+<option>
+AIIMS Delhi
+</option>
+
+
+<option>
+Safdarjung Hospital
+</option>
+
+
+<option>
+Max Hospital
+</option>
+
+
+</select>
+
+
+
+
+<label>
+Appointment Date
+</label>
+
+
+<input
+type="date"
+name="date"
+required>
+
+
+
+<button class="btn btn-primary">
+
+Book Appointment
+
+</button>
+
+
+</form>
+
+
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,358 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+City Dashboard
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<section class="hero">
+
+
+<h1>
+
+<i class="fa-solid fa-city"></i>
+
+Smart City Healthcare Dashboard
+
+</h1>
+
+
+<p>
+
+Monitor hospitals, doctors, ambulances and healthcare services.
+
+</p>
+
+
+</section>
+
+
+
+
+<br>
+
+
+
+<div class="row g-4">
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-hospital icon"></i>
+
+
+<h4>
+
+Hospitals
+
+</h4>
+
+
+<h2>
+
+{{ hospitals }}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-user-doctor icon"></i>
+
+
+<h4>
+
+Doctors
+
+</h4>
+
+
+<h2>
+
+{{ doctors }}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-users icon"></i>
+
+
+<h4>
+
+Patients
+
+</h4>
+
+
+<h2>
+
+{{ patients }}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-truck-medical icon"></i>
+
+
+<h4>
+
+Ambulances
+
+</h4>
+
+
+<h2>
+
+{{ ambulances }}
+
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+<br><br>
+
+
+
+
+
+<div class="card p-4">
+
+
+<h3>
+
+<i class="fa-solid fa-chart-line"></i>
+
+Healthcare Overview
+
+</h3>
+
+
+<hr>
+
+
+
+<div class="row text-center">
+
+
+
+<div class="col-md-6">
+
+
+<h5>
+
+Healthcare Infrastructure
+
+</h5>
+
+
+<p>
+
+Total Hospitals:
+
+<b>
+
+{{ hospitals }}
+
+</b>
+
+</p>
+
+
+<p>
+
+Available Doctors:
+
+<b>
+
+{{ doctors }}
+
+</b>
+
+</p>
+
+
+
+</div>
+
+
+
+
+<div class="col-md-6">
+
+
+<h5>
+
+Emergency Network
+
+</h5>
+
+
+<p>
+
+Registered Ambulances:
+
+<b>
+
+{{ ambulances }}
+
+</b>
+
+</p>
+
+
+<p>
+
+Patients Served:
+
+<b>
+
+{{ patients }}
+
+</b>
+
+</p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<br><br>
+
+
+
+
+
+<div class="card p-4">
+
+
+<h3>
+
+<i class="fa-solid fa-shield-heart"></i>
+
+City Healthcare Mission
+
+</h3>
+
+
+<hr>
+
+
+
+<p>
+
+MedCare connects hospitals, doctors, patients and emergency services
+through a unified smart healthcare ecosystem.
+
+</p>
+
+
+<ul>
+
+
+<li>
+Real-time hospital monitoring
+</li>
+
+
+<li>
+Digital patient management
+</li>
+
+
+<li>
+Emergency response support
+</li>
+
+
+<li>
+Smart healthcare analytics
+</li>
+
+
+</ul>
+
+
+
+</div>
+
+
+
+{% endblock %}

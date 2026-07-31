@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+AI Symptom Checker
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="hero">
+
+
+<h1>
+
+<i class="fa-solid fa-brain"></i>
+
+AI Health Assistant
+
+</h1>
+
+
+<p>
+
+Check symptoms and identify emergency priority
+
+</p>
+
+
+</div>
+
+
+<br>
+
+
+<div class="card p-4">
+
+
+<form method="POST">
+
+
+<label>
+
+Patient Name
+
+</label>
+
+
+<input
+
+class="form-control"
+
+name="name"
+
+required>
+
+
+<br>
+
+
+<label>
+
+Describe Symptoms
+
+</label>
+
+
+<textarea
+
+class="form-control"
+
+name="symptoms"
+
+rows="5"
+
+placeholder="Example: chest pain, fever, cough">
+
+</textarea>
+
+
+<br>
+
+
+<button class="btn btn-primary">
+
+Analyze Symptoms
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+<br>
+
+
+
+{% if result %}
+
+
+<div class="card p-4">
+
+
+<h3>
+
+AI Assessment Result
+
+</h3>
+
+
+
+<p>
+
+Risk Level:
+
+<b>
+
+{{result.risk}}
+
+</b>
+
+</p>
+
+
+
+<p>
+
+Department:
+
+<b>
+
+{{result.department}}
+
+</b>
+
+</p>
+
+
+
+<p>
+
+Priority:
+
+<b>
+
+{{result.priority}}
+
+</b>
+
+</p>
+
+
+
+<p>
+
+Recommendation:
+
+{{result.recommendation}}
+
+</p>
+
+
+</div>
+
+
+{% endif %}
+
+
+
+{% endblock %}

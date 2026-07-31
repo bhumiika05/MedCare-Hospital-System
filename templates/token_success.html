@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+OPD Token
+{% endblock %}
+
+
+
+{% block content %}
+
+
+<div class="card p-5 text-center">
+
+
+<h1>
+
+<i class="fa-solid fa-circle-check text-success"></i>
+
+Token Generated
+
+</h1>
+
+
+
+<hr>
+
+
+
+<h2>
+
+Your Token Number
+
+</h2>
+
+
+
+<h1 class="text-primary">
+
+{{token.token_number}}
+
+</h1>
+
+
+
+<h4>
+
+Patient:
+
+{{token.patient_name}}
+
+</h4>
+
+
+
+<p>
+
+Department:
+
+{{token.department}}
+
+</p>
+
+
+
+<h4>
+
+Scan QR Code at Hospital
+
+</h4>
+
+
+
+<img
+
+src="{{url_for('static',
+filename='qr/'+token.qr_code)}}"
+
+width="250"
+
+
+class="mt-3"
+
+
+
+>
+
+
+
+<br><br>
+
+
+
+<a href="/queue"
+
+class="btn btn-primary">
+
+Back To Queue
+
+</a>
+
+
+
+</div>
+
+
+
+{% endblock %}

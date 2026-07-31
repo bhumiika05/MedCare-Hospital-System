@@ -1,0 +1,557 @@
+{% extends "base.html" %}
+
+{% block title %}
+Patient Dashboard
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="row align-items-center">
+
+<div class="col-lg-8">
+
+<h1>
+
+<i class="fa-solid fa-user"></i>
+
+Patient Dashboard
+
+</h1>
+
+<p>
+
+Manage your appointments, OPD queue and AI health reports from one place.
+
+</p>
+
+</div>
+
+<div class="col-lg-4 text-center">
+
+<i class="fa-solid fa-heart-pulse hero-big-icon"></i>
+
+</div>
+
+</div>
+
+</section>
+
+<br>
+
+
+
+<!-- STATISTICS -->
+
+<div class="row g-4">
+
+<div class="col-md-4">
+
+<div class="card dashboard-card">
+
+<i class="fa-solid fa-calendar-check icon"></i>
+
+<h5>
+
+Latest Appointment
+
+</h5>
+
+<h3>
+
+{% if appointment %}
+
+{{ appointment.status }}
+
+{% else %}
+
+None
+
+{% endif %}
+
+</h3>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4">
+
+<div class="card dashboard-card">
+
+<i class="fa-solid fa-ticket icon"></i>
+
+<h5>
+
+Current Token
+
+</h5>
+
+<h2>
+
+{% if token %}
+
+{{ token.token_number }}
+
+{% else %}
+
+--
+
+{% endif %}
+
+</h2>
+
+</div>
+
+</div>
+
+
+
+<div class="col-md-4">
+
+<div class="card dashboard-card">
+
+<i class="fa-solid fa-brain icon"></i>
+
+<h5>
+
+Risk Level
+
+</h5>
+
+<h3>
+
+{% if assessment %}
+
+{{ assessment.risk_level }}
+
+{% else %}
+
+LOW
+
+{% endif %}
+
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+<br><br>
+
+
+
+<!-- APPOINTMENT -->
+
+<div class="card p-4">
+
+<h3>
+
+<i class="fa-solid fa-calendar-days"></i>
+
+Appointment Details
+
+</h3>
+
+<hr>
+
+{% if appointment %}
+
+<div class="row">
+
+<div class="col-md-6">
+
+<p>
+
+<strong>Patient</strong>
+
+</p>
+
+<p>
+
+{{ appointment.patient_name }}
+
+</p>
+
+</div>
+
+<div class="col-md-6">
+
+<p>
+
+<strong>Doctor</strong>
+
+</p>
+
+<p>
+
+{{ appointment.doctor }}
+
+</p>
+
+</div>
+
+<div class="col-md-6">
+
+<p>
+
+<strong>Hospital</strong>
+
+</p>
+
+<p>
+
+{{ appointment.hospital }}
+
+</p>
+
+</div>
+
+<div class="col-md-6">
+
+<p>
+
+<strong>Date</strong>
+
+</p>
+
+<p>
+
+{{ appointment.appointment_date }}
+
+</p>
+
+</div>
+
+</div>
+
+<span class="badge bg-success">
+
+{{ appointment.status }}
+
+</span>
+
+{% else %}
+
+<p>
+
+No appointment booked yet.
+
+</p>
+
+{% endif %}
+
+</div>
+
+<br><br>
+
+
+
+<!-- QUEUE -->
+
+<div class="card p-4">
+
+<h3>
+
+<i class="fa-solid fa-users"></i>
+
+OPD Queue Status
+
+</h3>
+
+<hr>
+
+{% if token %}
+
+<div class="row align-items-center">
+
+<div class="col-md-3 text-center">
+
+<h1 class="display-2 text-primary">
+
+{{ token.token_number }}
+
+</h1>
+
+</div>
+
+<div class="col-md-9">
+
+<p>
+
+<strong>Patient :</strong>
+
+{{ token.patient_name }}
+
+</p>
+
+<p>
+
+<strong>Department :</strong>
+
+{{ token.department }}
+
+</p>
+
+<p>
+
+<strong>Phone :</strong>
+
+{{ token.phone }}
+
+</p>
+
+<span class="badge bg-warning text-dark">
+
+{{ token.status }}
+
+</span>
+
+</div>
+
+</div>
+
+{% else %}
+
+<p>
+
+No queue token generated.
+
+</p>
+
+{% endif %}
+
+</div>
+
+<br><br>
+
+
+
+<!-- AI REPORT -->
+
+<div class="card p-4">
+
+<h3>
+
+<i class="fa-solid fa-robot"></i>
+
+AI Health Assessment
+
+</h3>
+
+<hr>
+
+{% if assessment %}
+
+<div class="row">
+
+<div class="col-md-6">
+
+<p>
+
+<strong>Patient Name</strong>
+
+</p>
+
+<p>
+
+{{ assessment.patient_name }}
+
+</p>
+
+</div>
+
+<div class="col-md-6">
+
+<p>
+
+<strong>Risk Level</strong>
+
+</p>
+
+<p>
+
+{{ assessment.risk_level }}
+
+</p>
+
+</div>
+
+<div class="col-md-6">
+
+<p>
+
+<strong>Department</strong>
+
+</p>
+
+<p>
+
+{{ assessment.department }}
+
+</p>
+
+</div>
+
+<div class="col-md-6">
+
+<p>
+
+<strong>Priority</strong>
+
+</p>
+
+<p>
+
+{{ assessment.priority }}
+
+</p>
+
+</div>
+
+</div>
+
+<hr>
+
+<p>
+
+<strong>Symptoms</strong>
+
+</p>
+
+<p>
+
+{{ assessment.symptoms }}
+
+</p>
+
+<hr>
+
+<p>
+
+<strong>Recommendation</strong>
+
+</p>
+
+<p>
+
+{{ assessment.recommendation }}
+
+</p>
+
+{% else %}
+
+<p>
+
+No AI health report available.
+
+</p>
+
+{% endif %}
+
+</div>
+
+<br><br>
+
+
+
+<!-- QUICK ACTIONS -->
+
+<div class="row g-4">
+
+<div class="col-md-3">
+
+<a href="/appointment" class="text-decoration-none">
+
+<div class="card dashboard-card">
+
+<i class="fa-solid fa-calendar-plus icon"></i>
+
+<h5>
+
+Book Appointment
+
+</h5>
+
+</div>
+
+</a>
+
+</div>
+
+
+
+<div class="col-md-3">
+
+<a href="/queue" class="text-decoration-none">
+
+<div class="card dashboard-card">
+
+<i class="fa-solid fa-ticket icon"></i>
+
+<h5>
+
+OPD Queue
+
+</h5>
+
+</div>
+
+</a>
+
+</div>
+
+
+
+<div class="col-md-3">
+
+<a href="/symptom-checker" class="text-decoration-none">
+
+<div class="card dashboard-card">
+
+<i class="fa-solid fa-stethoscope icon"></i>
+
+<h5>
+
+AI Symptom Checker
+
+</h5>
+
+</div>
+
+</a>
+
+</div>
+
+
+
+<div class="col-md-3">
+
+<a href="/recommendation" class="text-decoration-none">
+
+<div class="card dashboard-card">
+
+<i class="fa-solid fa-hospital icon"></i>
+
+<h5>
+
+Hospital Recommendation
+
+</h5>
+
+</div>
+
+</a>
+
+</div>
+
+</div>
+
+{% endblock %}

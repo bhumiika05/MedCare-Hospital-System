@@ -1,0 +1,695 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+AI Healthcare Analytics
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+
+<section class="hero">
+
+
+<div class="row align-items-center">
+
+
+<div class="col-md-8">
+
+
+<h1>
+
+<i class="fa-solid fa-chart-line"></i>
+
+AI Healthcare Analytics
+
+</h1>
+
+
+
+<p>
+
+Smart insights from patient flow, emergency cases and healthcare resources.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="col-md-4 text-center">
+
+
+<i class="fa-solid fa-brain hero-icon"></i>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+<!-- MAIN STATISTICS -->
+
+
+<div class="row g-4">
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-users icon"></i>
+
+
+<h5>
+
+Total Patients
+
+</h5>
+
+
+
+<h2>
+
+{{ total_patients }}
+
+</h2>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-calendar-check icon"></i>
+
+
+<h5>
+
+Appointments
+
+</h5>
+
+
+
+<h2>
+
+{{ total_appointments }}
+
+</h2>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-user-doctor icon"></i>
+
+
+<h5>
+
+Doctors
+
+</h5>
+
+
+
+<h2>
+
+{{ doctors_count }}
+
+</h2>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="card dashboard-card">
+
+
+<i class="fa-solid fa-hospital icon"></i>
+
+
+<h5>
+
+Hospitals
+
+</h5>
+
+
+
+<h2>
+
+{{ hospitals_count }}
+
+</h2>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+<!-- EMERGENCY ANALYSIS -->
+
+
+<div class="card p-4">
+
+
+
+<h3>
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+Emergency Risk Analysis
+
+</h3>
+
+
+
+<hr>
+
+
+
+
+
+
+<div class="row text-center">
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="analytics-box danger">
+
+
+<h1>
+
+{{ high_risk_cases }}
+
+</h1>
+
+
+
+<p>
+
+High Risk Patients
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="analytics-box warning">
+
+
+<h1>
+
+{{ medium_risk_cases }}
+
+</h1>
+
+
+
+<p>
+
+Medium Risk Patients
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<div class="analytics-box success">
+
+
+<h1>
+
+{{ low_risk_cases }}
+
+</h1>
+
+
+
+<p>
+
+Low Risk Patients
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+
+<!-- DEPARTMENT ANALYSIS -->
+
+
+<div class="card p-4">
+
+
+<h3>
+
+<i class="fa-solid fa-chart-column"></i>
+
+Department Demand
+
+</h3>
+
+
+<hr>
+
+
+
+<div class="row">
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="department-card">
+
+
+<h4>
+
+Cardiology
+
+</h4>
+
+
+<h2>
+
+{{ cardiology }}
+
+</h2>
+
+
+<p>
+
+Patients
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="department-card">
+
+
+<h4>
+
+General Medicine
+
+</h4>
+
+
+<h2>
+
+{{ general }}
+
+</h2>
+
+
+<p>
+
+Patients
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="department-card">
+
+
+<h4>
+
+Neurology
+
+</h4>
+
+
+<h2>
+
+{{ neurology }}
+
+</h2>
+
+
+<p>
+
+Patients
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="col-md-3">
+
+
+<div class="department-card">
+
+
+<h4>
+
+Orthopedics
+
+</h4>
+
+
+<h2>
+
+{{ orthopedics }}
+
+</h2>
+
+
+<p>
+
+Patients
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+
+<!-- SYSTEM STATUS -->
+
+
+<div class="card p-4">
+
+
+
+<h3>
+
+<i class="fa-solid fa-server"></i>
+
+Healthcare Infrastructure
+
+</h3>
+
+
+
+<hr>
+
+
+
+
+<div class="row text-center">
+
+
+
+<div class="col-md-4">
+
+
+<i class="fa-solid fa-ambulance icon"></i>
+
+
+<h2>
+
+{{ ambulance_count }}
+
+</h2>
+
+
+<p>
+
+Ambulances
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<i class="fa-solid fa-heart-pulse icon"></i>
+
+
+<h2>
+
+{{ emergency_cases }}
+
+</h2>
+
+
+<p>
+
+Emergency Assessments
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<div class="col-md-4">
+
+
+<i class="fa-solid fa-circle-check icon"></i>
+
+
+<h2>
+
+ONLINE
+
+</h2>
+
+
+<p>
+
+System Status
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+{% endblock %}

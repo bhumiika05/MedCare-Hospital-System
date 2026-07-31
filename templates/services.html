@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Services{% endblock %}
+
+{% block content %}
+<section class="page" aria-labelledby="services-heading">
+    <header class="page-header">
+        <h1 id="services-heading">Our Services</h1>
+        <p>Everything you need to navigate care—from booking to bed status.</p>
+    </header>
+
+    <div class="card-grid">
+        <article class="card">
+            <div class="card-icon" aria-hidden="true">A</div>
+            <h2>Appointments</h2>
+            <p>Schedule visits with specialists and receive reminders before your slot.</p>
+            <a href="/appointment" class="btn btn-outline card-action">Book now</a>
+        </article>
+        <article class="card">
+            <div class="card-icon" aria-hidden="true">B</div>
+            <h2>Bed availability</h2>
+            <p>See open beds across partner hospitals in near real time.</p>
+            <a href="/beds" class="btn btn-outline card-action">Check beds</a>
+        </article>
+        <article class="card">
+            <div class="card-icon" aria-hidden="true">Q</div>
+            <h2>OPD queue</h2>
+            <p>Track your position in line and estimated wait without waiting in the lobby.</p>
+            <a href="/queue" class="btn btn-outline card-action">View queue</a>
+        </article>
+    </div>
+</section>
+{% endblock %}

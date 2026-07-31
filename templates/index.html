@@ -1,0 +1,371 @@
+{% extends "base.html" %}
+
+{% block title %}
+MedCare
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-6">
+
+            <span class="hero-badge">
+                <i class="fa-solid fa-heart-pulse"></i>
+                AI Powered Smart Healthcare
+            </span>
+
+            <h1 class="display-4 fw-bold mt-3">
+                Transforming Healthcare
+                with AI & Smart Hospital Management
+            </h1>
+
+            <p class="hero-text mt-4">
+
+                Book appointments, generate digital OPD tokens,
+                monitor hospital bed availability, access ambulances,
+                and receive AI-powered healthcare recommendations
+                from one intelligent platform.
+
+            </p>
+
+            <div class="mt-4">
+
+                <a href="/appointment" class="btn btn-light btn-lg rounded-pill me-3">
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    Book Appointment
+
+                </a>
+
+                <a href="/symptom-checker" class="btn btn-outline-light btn-lg rounded-pill">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                    AI Symptom Checker
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6 text-center">
+
+            <img
+    src="{{ url_for('static', filename='images/hero-doctor.png') }}"
+    class="img-fluid hero-image"
+    alt="Healthcare Illustration">
+
+        </div>
+
+    </div>
+
+</section>
+
+<br><br>
+
+<!-- STATISTICS -->
+
+<section>
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+
+            <div class="card dashboard-card stats-card">
+
+                <i class="fa-solid fa-hospital icon"></i>
+
+                <h2>125+</h2>
+
+                <p>Hospitals Connected</p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card dashboard-card stats-card">
+
+                <i class="fa-solid fa-user-doctor icon"></i>
+
+                <h2>420+</h2>
+
+                <p>Doctors</p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card dashboard-card stats-card">
+
+                <i class="fa-solid fa-users icon"></i>
+
+                <h2>18K+</h2>
+
+                <p>Patients Served</p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+
+            <div class="card dashboard-card stats-card">
+
+                <i class="fa-solid fa-truck-medical icon"></i>
+
+                <h2>85+</h2>
+
+                <p>Ambulances</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<br><br>
+
+<!-- FEATURES -->
+
+<section>
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold">
+
+            Why Choose MedCare?
+
+        </h2>
+
+        <p>
+
+            A complete AI-enabled healthcare ecosystem.
+
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-lg-4">
+
+            <div class="card feature-card p-4 h-100">
+
+                <i class="fa-solid fa-calendar-check feature-icon"></i>
+
+                <h4>Smart Appointment Booking</h4>
+
+                <p>
+
+                    Quickly schedule appointments with specialists.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="card feature-card p-4 h-100">
+
+                <i class="fa-solid fa-ticket feature-icon"></i>
+
+                <h4>Digital Queue System</h4>
+
+                <p>
+
+                    QR-enabled OPD token generation with live queue tracking.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="card feature-card p-4 h-100">
+
+                <i class="fa-solid fa-robot feature-icon"></i>
+
+                <h4>AI Symptom Analysis</h4>
+
+                <p>
+
+                    AI evaluates symptoms and recommends the correct department.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="card feature-card p-4 h-100">
+
+                <i class="fa-solid fa-bed feature-icon"></i>
+
+                <h4>Hospital Bed Monitoring</h4>
+
+                <p>
+
+                    Real-time availability of beds across hospitals.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="card feature-card p-4 h-100">
+
+                <i class="fa-solid fa-truck-medical feature-icon"></i>
+
+                <h4>Emergency Ambulance</h4>
+
+                <p>
+
+                    Quickly locate available ambulances during emergencies.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="card feature-card p-4 h-100">
+
+                <i class="fa-solid fa-chart-line feature-icon"></i>
+
+                <h4>Healthcare Analytics</h4>
+
+                <p>
+
+                    Smart dashboards for hospitals, doctors and city authorities.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<br><br>
+
+<!-- WORKFLOW -->
+
+<section>
+
+    <div class="card p-5">
+
+        <div class="text-center">
+
+            <h2 class="fw-bold">
+
+                How MedCare Works
+
+            </h2>
+
+            <p>
+
+                Four simple steps to smarter healthcare.
+
+            </p>
+
+        </div>
+
+        <div class="row mt-5 text-center">
+
+            <div class="col-md-3">
+
+                <div class="step-circle">
+
+                    1
+
+                </div>
+
+                <h5 class="mt-3">
+
+                    Register
+
+                </h5>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="step-circle">
+
+                    2
+
+                </div>
+
+                <h5 class="mt-3">
+
+                    Book Appointment
+
+                </h5>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="step-circle">
+
+                    3
+
+                </div>
+
+                <h5 class="mt-3">
+
+                    AI Assessment
+
+                </h5>
+
+            </div>
+
+            <div class="col-md-3">
+
+                <div class="step-circle">
+
+                    4
+
+                </div>
+
+                <h5 class="mt-3">
+
+                    Receive Treatment
+
+                </h5>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
