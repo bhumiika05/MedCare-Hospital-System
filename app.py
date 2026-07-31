@@ -31,6 +31,43 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db.init_app(app)
 
+with app.app_context():
+
+    db.create_all()
+
+    if BedAvailability.query.count() == 0:
+
+        beds = [
+            BedAvailability(
+                hospital="AIIMS Delhi",
+                ward="ICU",
+                total_beds=50,
+                occupied_beds=35,
+                available_beds=15
+            ),
+
+            BedAvailability(
+                hospital="Fortis Hospital",
+                ward="General Ward",
+                total_beds=100,
+                occupied_beds=70,
+                available_beds=30
+            ),
+
+            BedAvailability(
+                hospital="Apollo Hospital",
+                ward="Emergency",
+                total_beds=80,
+                occupied_beds=50,
+                available_beds=30
+            )
+        ]
+
+
+        db.session.add_all(beds)
+
+        db.session.commit() 
+        
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = "login"
